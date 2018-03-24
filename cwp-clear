@@ -1,0 +1,49 @@
+#! /bin/bash
+# Author: Villalba Juan Manuel Pedro
+# Version: 3.0.1
+# Estado: Alpha
+# Author: Villalba Juan Manuel
+# WebSite: https://hexome.com.ar
+# Comment: Este script de programa ha sido diseñado especialmente para todos los que estan artos de pedir a soporte que vuelvan a instalar la imagen de ISO CentOs.
+# Date: 04:00am 24-03-2018
+# Advertencia: Usar con cautela y bajo propia responsabilidad
+# Licence: GPLv2 Free Software Foundation
+# licensing@fsf.org
+clear;
+
+echo '
+###############################
+# AUTORIZA!AUTORIZA!AUTORIZA! #
+###############################
+###############################';
+
+sudo -v;
+
+echo '
+##############################
+# APLICANDO LIMPIEZA!	     #
+##############################
+##############################';
+
+clear;
+
+echo ' eliminando procesos
+#######################################
+# MUERTE DE LOS PROCESOS IMPORTANTES  #
+# DESTRUIR PROCESOS COMPLETOS         #
+#######################################
+';
+
+service httpd stop 
+service mysql stop
+service named stop 
+service  stop
+
+sudo killall -9 httpd
+sudo killall -9 mysql
+
+service httpd stop 
+service mysql stop
+ 
+rm -rfv /usr/local/cwpsrv/
+
